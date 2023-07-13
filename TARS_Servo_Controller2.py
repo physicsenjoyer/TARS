@@ -8,6 +8,13 @@ pwm = Adafruit_PCA9685.PCA9685()
 # Set frequency to 60hz, good for servos.
 pwm.set_pwm_freq(60)
 
+starMain = 0
+portMain = 0
+starForarm = 0
+portForarm = 0
+starHand = 0
+portHand = 0
+
 # Center Lift Servo (0) Values
 upHeight = 235
 neutralHeight = 275
@@ -161,3 +168,63 @@ def neutral_from_left():
         pwm.set_pwm(1, 1, port)
         pwm.set_pwm(2, 2, starboard)
         time.sleep(0.001)
+	
+def plusStarMain():
+	starMain = starMain + 1
+	pwm.set_pwm(3, 3, starMain)
+	time.sleep(0.0001)
+
+def minusStarMain():
+	starMain = starMain - 1
+	pwm.set_pwm(3, 3, starMain)
+	time.sleep(0.0001)
+
+def plusPortMain():
+	portMain = portMain + 1
+	pwm.set_pwm(6, 6, portMain)
+	time.sleep(0.0001)
+
+def minusStarMain():
+	portMain = portMain - 1
+	pwm.set_pwm(6, 6, portMain)
+	time.sleep(0.0001)
+
+def plusStarForarm():
+	starForarm = starForarm + 1
+	pwm.set_pwm(4, 4, starForarm)
+	time.sleep(0.0001)
+
+def minusStarForarm():
+	starForarm = starForarm - 1
+	pwm.set_pwm(4, 4, starForarm)
+	time.sleep(0.0001)
+
+def plusPortForarm():
+	portForarm = portForarm + 1
+	pwm.set_pwm(7, 7, portForarm)
+	time.sleep(0.0001)
+
+def minusPortForarm():
+	portForarm = portForarm - 1
+	pwm.set_pwm(7, 7, portForarm)
+	time.sleep(0.0001)
+
+def plusStarHand():
+	starHand = starHand + 1
+	pwm.set_pwm(5, 5, starHand)
+	time.sleep(0.0001)
+
+def minusStarHand():
+	starHand = starHand - 1
+	pwm.set_pwm(5, 5, starHand)
+	time.sleep(0.0001)
+
+def plusPortHand():
+	portHand = portHand + 1
+	pwm.set_pwm(8, 8, portHand)
+	time.sleep(0.0001)
+
+def minusPortHand():
+	portHand = portHand - 1
+	pwm.set_pwm(8, 8, portHand)
+	time.sleep(0.0001)

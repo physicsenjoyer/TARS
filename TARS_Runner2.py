@@ -24,14 +24,26 @@ plusBtn = 24
 print(gamepad)
 
 pose = False
+toggle = True
+
+def toggleState():
+    return toggle
 
 for event in gamepad.read_loop():
     if event.type == ecodes.EV_KEY:
         if event.value == 1:
+            if event.code == minusBtn:
+                toggle = False
+            if event.code == plusBtn:
+                toggle = True
+
             if event.code == lTrg:
                 print("Left Trigger")
+                TARS_Servo_Abstractor.portMain()
             elif event.code == rTrg:
                 print("Right Trigger")
+                TARS_Servo_Abstractor.starMain()
+
             elif event.code == upBtn:
                 print("Up - Step Forward")
                 TARS_Servo_Abstractor.stepForward()
@@ -44,19 +56,17 @@ for event in gamepad.read_loop():
                 print("Right - Turn Right")
                 TARS_Servo_Abstractor.turnRight()
             elif event.code == xBtn:
-                print("X - Pose")
-                if (pose == False):
-                    TARS_Servo_Abstractor.pose()
-                    pose = True
-                elif (pose == True):
-                    TARS_Servo_Abstractor.unPose()
-                    pose = False
+                print("X")
+                TARS_Servo_Abstractor.starForarm()
             elif event.code == yBtn:
                 print("Y")
+                TARS_Servo_Abstractor.portForarm()
             elif event.code == aBtn:
                 print("A")
+                TARS_Servo_Abstractor.starHand()
             elif event.code == bBtn:
-                print("B - Unpose")
+                print("B")
+                TARS_Servo_Abstractor.portHand()
             elif event.code == plusBtn:
                 print("+")
             elif event.code == minusBtn:
